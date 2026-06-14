@@ -1,26 +1,90 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+--bg: #f8fafc;
+--surface: #ffffff;
+--surface2: #f1f5f9;
+--border: #e2e8f0;
+
+--text: #0f172a;
+--muted: #64748b;
+
+--accent: #4f46e5;
+--accent2: #2563eb;
+
+--error: #dc2626;
+--success: #16a34a;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
   }
+
+html {
+scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+background: var(--bg);
+color: var(--text);
+font-family: 'Inter', sans-serif;
+min-height: 100vh;
+}
+
+a {
+text-decoration: none;
+color: inherit;
+}
+
+button,
+input,
+select,
+textarea {
+font-family: 'Inter', sans-serif;
+}
+
+textarea {
+resize: vertical;
+}
+
+@keyframes spin {
+to {
+transform: rotate(360deg);
+}
+}
+
+@keyframes slideUp {
+from {
+opacity: 0;
+transform: translateY(20px);
+}
+
+to {
+opacity: 1;
+transform: translateY(0);
+}
+}
+
+.animate-spin-custom {
+animation: spin 0.7s linear infinite;
+}
+
+.animate-slide-up {
+animation: slideUp 0.35s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.scrollbar-thin::-webkit-scrollbar {
+width: 6px;
+height: 6px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+background: #f1f5f9;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+background: #cbd5e1;
+border-radius: 999px;
 }
